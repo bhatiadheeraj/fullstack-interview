@@ -26,12 +26,12 @@ function ListView(){
         <h1>List of all People</h1>
         {
         loadingComplete &&
-        <div>
+        <div data-testid='component-listview'>
             {
-                people.map((person: Person)=>{
-                    return <PersonRow>
-                                <PersonCell>{person.firstName}</PersonCell>
-                                <PersonCell>{person.lastName}</PersonCell>
+                people.map((person: Person,index)=>{
+                    return <PersonRow key={person.id}>
+                                <PersonCell key={person.id} >{person.firstName}</PersonCell>
+                                <PersonCell key={index}>{person.lastName}</PersonCell>
                             </PersonRow>
                 })
             }
